@@ -1,0 +1,51 @@
+diff -crN alsa-lib-1.0.22/src/pcm/pcm.c alsa-lib-1.0.22-new/src/pcm/pcm.c
+*** alsa-lib-1.0.22/src/pcm/pcm.c	2009-05-06 15:07:23.000000000 +0800
+--- alsa-lib-1.0.22-new/src/pcm/pcm.c	2010-06-10 17:53:28.000000000 +0800
+***************
+*** 2659,2664 ****
+--- 2659,2666 ----
+  	char *dst;
+  	int width;
+  	int src_step, dst_step;
++ 	unsigned short *from, *to, *left, *right;
++ 	int i=0, j=0;
+  	if (dst_area == src_area && dst_offset == src_offset)
+  		return 0;
+  	if (!src_area->addr)
+***************
+*** 2668,2678 ****
+  		return 0;
+  	dst = snd_pcm_channel_area_addr(dst_area, dst_offset);
+  	width = snd_pcm_format_physical_width(format);
+  	if (src_area->step == (unsigned int) width &&
+  	    dst_area->step == (unsigned int) width) {
+  		size_t bytes = samples * width / 8;
+  		samples -= bytes * 8 / width;
+! 		memcpy(dst, src, bytes);
+  		if (samples == 0)
+  			return 0;
+  	}
+--- 2670,2692 ----
+  		return 0;
+  	dst = snd_pcm_channel_area_addr(dst_area, dst_offset);
+  	width = snd_pcm_format_physical_width(format);
++ 	from = src;
++ 	to = dst;
++ 	left = to;
++ 	right = to + 16;
+  	if (src_area->step == (unsigned int) width &&
+  	    dst_area->step == (unsigned int) width) {
+  		size_t bytes = samples * width / 8;
+  		samples -= bytes * 8 / width;
+! 		for (j=0; j < bytes; j+=64) {
+! 			for (i=0; i<16; i++) {
+! 				*left++ = *from++;
+! 				*right++ = *from++;
+! 				}
+! 			left +=16;
+! 			right +=16;
+! 			}
+! 		//memcpy(dst, src, bytes);
+  		if (samples == 0)
+  			return 0;
+  	}
