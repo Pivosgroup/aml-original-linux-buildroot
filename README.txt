@@ -17,7 +17,7 @@ Build rootfs for includes/libs:
  export PATH=/opt/arm-2010q1/bin:$PATH
  cp buildroot.config buildroot-2010.05/.config
  cp busybox.config buildroot-2010.05/busybox.config
- cp buildroot-2010.05
+ cd buildroot-2010.05
  make
  got to lunch, it will take a long time to fetch and build
 
