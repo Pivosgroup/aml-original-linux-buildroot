@@ -10,7 +10,7 @@ with a symlink to /opt/CodeSourcery/Sourcery_G++_Lite.
 
 Fetch and install binary rootfs:
  wget http://openlinux.amlogic.com/download/linux/ARM/filesystem/arm-rootfs-2011-08-31-14.00--svn2033.tar.gz
- tar xf rootfs-2011-08-31-14.00--svn2033.tar.gz
+ tar xf arm-rootfs-2011-08-31-14.00--svn2033.tar.gz
  sudo mkdir -p /opt/aml-rootfs
  sudo cp -r arm-rootfs-2011-08-31-14.00--svn2033/* /opt/aml-rootfs
  sudo mkdir -p /opt/aml-rootfs/opt/xbmc-aml
