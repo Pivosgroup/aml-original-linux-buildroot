@@ -20,6 +20,7 @@ Build rootfs for includes/libs:
  cp buildroot.config buildroot-2010.05/.config
  cp busybox.config buildroot-2010.05/busybox.config
  cd buildroot-2010.05
+ make menuconfig
  make
  go to lunch, it will take some time to fetch and build
 
