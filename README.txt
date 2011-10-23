@@ -19,7 +19,7 @@ Build rootfs for includes/libs:
  cp busybox.config buildroot-2010.05/busybox.config
  cd buildroot-2010.05
  make
- got to lunch, it will take a long time to fetch and build
+ go to lunch, it will take some time to fetch and build
 
 Normally, one would use the built image to populate the rootfs but that is
 currently broke :(
