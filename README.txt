@@ -14,6 +14,7 @@ Fetch and install binary rootfs:
  sudo mkdir -p /opt/aml-rootfs/opt/xbmc-aml
 
 Build rootfs for includes/libs:
+ export PATH=/opt/arm-2010q1/bin:$PATH
  cp buildroot.config buildroot-2010.05/.config
  cp busybox.config buildroot-2010.05/busybox.config
  cp buildroot-2010.05
