@@ -17,10 +17,10 @@ Fetch and install binary rootfs:
 
 Build rootfs for includes/libs:
  export PATH=/opt/arm-2010q1/bin:$PATH
- cp buildroot.config buildroot-2010.05/.config
+ cp buildroot.config buildroot-2010.05/.defconfig
  cp busybox.config buildroot-2010.05/busybox.config
  cd buildroot-2010.05
- make menuconfig
+ make defconfig
  make
  go to lunch, it will take some time to fetch and build
 
