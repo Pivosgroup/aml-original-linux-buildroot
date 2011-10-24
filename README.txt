@@ -8,6 +8,9 @@ The bootable rootfs is assumed to be going to /opt/aml-root.
 Also the cross toolchain is assumed to be at /opt/arm-2010q1
 with a symlink to /opt/CodeSourcery/Sourcery_G++_Lite.
 
+On Ubuntu distros, they use dash instead of bash. Buildroot
+requires bash, so 'sudo dpkg-reconfigure dash' and choose bash.
+
 Fetch and install binary rootfs:
  wget http://openlinux.amlogic.com/download/linux/ARM/filesystem/arm-rootfs-2011-08-31-14.00--svn2033.tar.gz
  tar xf arm-rootfs-2011-08-31-14.00--svn2033.tar.gz
