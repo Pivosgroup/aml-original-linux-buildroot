@@ -9,8 +9,6 @@ AMFFMPEG_SOURCE=src
 AMFFMPEG_SITE=.
 
 PREFIX=$(TARGET_DIR)
-export LD_LIBRARY_PATH=$(PREFIX)/usr/lib
-export C_INCLUDE_PATH=$(STAGING_DIR)/usr/include
 
 CONFIG_FLAGS= --prefix=${PREFIX} --incdir=$(STAGING_DIR)/usr/include --disable-static --enable-shared --disable-ffplay --disable-ffserver --disable-doc \
     --disable-mpegaudio-hp --disable-encoders --disable-decoder=h264 --disable-muxers --disable-filters --enable-cross-compile \
